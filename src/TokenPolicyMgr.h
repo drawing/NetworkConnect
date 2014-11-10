@@ -19,6 +19,7 @@ public:
 private:
 	bool DoPolicy(char szBuffer[], int iLen);
 	bool DoLogin(char szBuffer[], int iLen);
+	bool DoLogout(char szBuffer[], int iLen);
 private:
 	int m_Sock;
 private:
