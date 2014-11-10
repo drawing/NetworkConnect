@@ -1,0 +1,35 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+INCLUDE_DIRECTORIES(../src)
+
+
+SET(ALL_LIB network ${SSL_LIB} ${SYS_LIB})
+
+ADD_EXECUTABLE(kernel KernelTest.cpp)
+TARGET_LINK_LIBRARIES(kernel ${ALL_LIB})
+
+ADD_EXECUTABLE(thread ThreadTest.cpp)
+TARGET_LINK_LIBRARIES(thread ${ALL_LIB})
+
+ADD_EXECUTABLE(mutex MutexTest.cpp)
+TARGET_LINK_LIBRARIES(mutex ${ALL_LIB})
+
+ADD_EXECUTABLE(sem SemaphoreTest.cpp)
+TARGET_LINK_LIBRARIES(sem ${ALL_LIB})
+
+ADD_EXECUTABLE(tun TunTest.cpp)
+TARGET_LINK_LIBRARIES(tun ${ALL_LIB})
+
+ADD_EXECUTABLE(mgr SessionMgrTest.cpp)
+TARGET_LINK_LIBRARIES(mgr ${ALL_LIB})
+
+ADD_EXECUTABLE(options OptionsTest.cpp)
+TARGET_LINK_LIBRARIES(options ${ALL_LIB})
+
+ADD_EXECUTABLE(policy PolicyTest.cpp)
+TARGET_LINK_LIBRARIES(policy ${ALL_LIB})
+
+if (WIN32)
+else (WIN32)
+	ADD_EXECUTABLE(control Control.cpp)
+endif (WIN32)
+
